@@ -4,7 +4,12 @@ interface State {
   error: string | null;
 }
 
-const reducer = (state: State, action: any): State => {
+interface Action {
+  type: String;
+  payload?: any;
+}
+
+const reducer = (state: State, action: Action): State => {
   switch(action.type) {
     case 'SEARCH_REPOS':
       return {
