@@ -4,12 +4,26 @@ interface State {
   error: string | null;
 }
 
-interface Action {
-  type: String;
-  payload?: any;
+interface SearchReposAction {
+  type: 'SEARCH_REPOS';
 }
 
-const reducer = (state: State, action: Action): State => {
+interface SearchReposSuccessAction {
+  type: 'SEARCH_REPOS_SUCCESS';
+  payload: string[];
+}
+
+interface SearchReposErrorAction {
+  type: 'SEARCH_REPOS_ERROR';
+  payload: string;
+}
+
+const reducer = (
+  state: State,
+  action: SearchReposAction |
+          SearchReposSuccessAction |
+          SearchReposErrorAction
+): State => {
   switch(action.type) {
     case 'SEARCH_REPOS':
       return {
