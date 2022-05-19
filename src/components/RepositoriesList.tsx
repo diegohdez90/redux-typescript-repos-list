@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useActions';
 
 function RepositoriesList() {
@@ -6,6 +7,12 @@ function RepositoriesList() {
   const {
     searchRepos,
   } = useActions();
+  const {
+    data,
+    error,
+    loading,
+  } = useSelector((state: any) => state.repositories);
+
   const onChangeTermEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTerm(e.target.value);
   };
