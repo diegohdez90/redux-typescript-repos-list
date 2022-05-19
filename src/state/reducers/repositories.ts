@@ -7,10 +7,16 @@ interface State {
   error: string | null;
 }
 
+const initialState = {
+  loading: false,
+  data: [],
+  error: null,
+}
+
 const reducer = (
-  state: State,
+  state: State = initialState,
   action: Action
-): State => {
+) => {
   switch(action.type) {
     case ActionType.SEARCH_REPOS:
       return {
