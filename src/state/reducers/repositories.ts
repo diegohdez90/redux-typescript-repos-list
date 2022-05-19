@@ -1,5 +1,5 @@
-import { Action } from "../actions";
-import { ActionType } from "../action-types";
+import { Action } from '../actions';
+import { ActionType } from '../action-types';
 
 interface State {
   loading: boolean;
@@ -11,13 +11,13 @@ const initialState = {
   loading: false,
   data: [],
   error: null,
-}
+};
 
-const reducer = (
+export const reducer = (
   state: State = initialState,
-  action: Action
+  action: Action,
 ) => {
-  switch(action.type) {
+  switch (action.type) {
     case ActionType.SEARCH_REPOS:
       return {
         loading: true,
@@ -40,5 +40,3 @@ const reducer = (
       return state;
   }
 };
-
-export default reducer;

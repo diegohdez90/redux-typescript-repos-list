@@ -1,4 +1,3 @@
-
 export enum ActionType {
   SEARCH_REPOS = 'SEARCH_REPOS',
   SEARCH_REPOS_SUCCESS = 'SEARCH_REPOS_SUCCESS',

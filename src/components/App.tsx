@@ -1,17 +1,18 @@
-import { Provider } from "react-redux";
-import { store } from "../state";
-import RepositoriesList from "./RepositoriesList";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../state';
+import RepositoriesList from './RepositoriesList';
 
-const App: React.FC = () => {
-  return (<Provider
-    store={store.default}
-  >
-    <div>
-      <h3>Search for repositories</h3>
-      <RepositoriesList/>
-      
-    </div>
-  </Provider>);
+function App() {
+  return (
+    <Provider store={store}>
+      <div>
+        <h3>Search for repositories</h3>
+        <RepositoriesList />
+
+      </div>
+    </Provider>
+  );
 }
 
 export default App;
