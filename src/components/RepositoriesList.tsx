@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useActions';
+import { useSelector } from '../hooks/useTypedSelector';
 
-function RepositoriesList() {
+const RepositoriesList: React.FC = () => {
   const [term, setTerm] = useState('');
   const {
     searchRepos,
@@ -11,7 +11,7 @@ function RepositoriesList() {
     data,
     error,
     loading,
-  } = useSelector((state: any) => state.repositories);
+  } = useSelector((state) => state.repositories);
 
   const onChangeTermEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTerm(e.target.value);
@@ -36,10 +36,23 @@ function RepositoriesList() {
             />
           </label>
           <button type="submit">Search</button>
+          {
+            error && <h5>{error}</h5>
+          }
+          {
+            loading && <span>Loading...</span>
+          }
+          {
+            data && (
+              <ul>
+                {data.map((repo) => (<li>{repo}</li>))}
+              </ul>
+            )
+          }
         </form>
       </h4>
     </div>
   );
-}
+};
 
 export default RepositoriesList;

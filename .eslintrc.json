@@ -5,9 +5,7 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -37,7 +35,19 @@
              "tsx": "never"
            }
         ],
-        "react/jsx-filename-extension": [2, { "extensions": [".ts", ".tsx"] }]
+        "react/jsx-filename-extension": [2, { "extensions": [".ts", ".tsx"] }],
+        "object-shorthand": [
+            2,
+            "never"
+        ],
+        "react/prop-types": "off",
+        "react/require-default-props": "off",
+        "react/function-component-definition": [
+            2,
+            {
+              "namedComponents": "function-declaration"
+            }
+          ]
     },
     "settings": {
         "import/resolver": {

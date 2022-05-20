@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import repositories from './reducers';
+import { reducer as repositories } from './reducers/repositories';
 
 export const store = configureStore({
   reducer: {
-    repositories,
+    repositories: repositories,
   },
 });
 
